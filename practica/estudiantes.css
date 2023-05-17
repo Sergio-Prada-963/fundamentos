@@ -1,0 +1,16 @@
+body{
+    height: 100%;
+    width: 100%;
+
+}
+
+.caja{
+    margin: 2rem;
+    height: 20%;
+    width: 20%;
+}
+.text{
+    display: flex;
+    text-align: center;
+    margin: 2rem;
+}
