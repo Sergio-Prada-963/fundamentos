@@ -27,16 +27,15 @@
                 $nota2= $_POST["nota2"];
                 $nota3= $_POST["nota3"];
                 $notaTotal = ($nota1+$nota2+$nota3)/3;
-                if($notaTotal>3.9){
+                if($notaTotal>=3.9){
                     echo "Becado";
-                }
-                else{
+                }else{
                     echo '<h1 style="color:red;margin:2rem">Estudiue</h1>';
                 };
             }
         ?>
-        <!-- Punto #2 -->
     </div>
+    <!-- Punto #2 -->
     <div class="caja">
         <form action="taller.php" method="POST">
             <label >Digite un namber</label>
@@ -51,8 +50,7 @@
                     echo '<h1 style="color:green;margin:2rem">es par</h1>';
                 }else{
                     echo '<h1 style="color:red;margin:2rem">es impar </h1>';
-                }
-
+                };
 
                 if($numero>=10){
                     echo '<h1 style="color:green;margin:2rem">es mayor a 10 </h1>';
@@ -108,9 +106,102 @@
         ];
         if($_POST){
             $posicion = max($array);
-            $aqui = strpos($array, $posicion);
-            echo $aqui;
+            if($posicion === $ePersona1){
+                echo "la persona $persona1 tiene mayor edad: $ePersona1";
+            }elseif($posicion === $ePersona2){
+                echo "la persona $persona2 tiene mayor edad: $ePersona2";
+            }else{
+                echo "la persona $persona3 tiene mayor edad: $ePersona3";
+            };
         };
+        ?>
+    </div>
+    <!-- punto #5 -->
+    <div class="caja">
+        <form action="taller.php" method="POST" >
+            <label>Ingrese Un Nuemero</label>
+            <input type="number" placeholder="digite un numero" class="form-control" name="numero1" step="0.0001">
+            <label>Ingrese Otro Numero</label>
+            <input type="number" placeholder="digite otro mumero" class="form-control" name="numero2" step="0.0001">
+            <button type="submit" class="btn btn-warning m-2">Calcular</button>
+        </form>
+        <?php
+        $numero1 = $_POST["numero1"];
+        $numero2 = $_POST["numero2"];
+            if($_POST){
+                if($numero1 > $numero2){
+                    $total1 = $numero1 + $numero2; 
+                    echo "el Primero es Mayor, y su suma es: $total1 "; 
+                }else{
+                    $total2 = $numero1 - $numero2;
+                    echo "EL sugundo en Mayor, y su resta es: $total2";
+                };
+            };
+        ?>
+    </div>
+    <!-- Punto #6 -->
+    <div class="caja">
+        <form action="taller.php" method="POST" >
+            <label>tres estudiantes</label>
+            <div class="caja">
+                <label>Estudiante #1</label>
+                <input type="text" placeholder="Digite el Nombre" class="form-control" name="estu1">
+                <select name="Sestu1">
+                    <option value="">Ingrese el genero</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                </select>
+                <input type="number" placeholder="Digite La Nota" class="form-control" name="Nestu1" step="0.00001">
+            </div>
+            <div class="caja">
+                <label>Estudiante #2</label>
+                <input type="text" placeholder="Digite el Nombre" class="form-control" name="estu2">
+                <select name="Sestu2">
+                    <option value="">Ingrese el genero</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                </select>
+                <input type="number" placeholder="Digite La Nota" class="form-control" name="Nestu2" step="0.00001">
+            </div>
+            <div class="caja">
+                <label>Estudiante #3</label>
+                <input type="text" placeholder="Digite el Nombre" class="form-control" name="estu3">
+                <select name="Sestu3">
+                    <option value="">Ingrese el genero</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                </select>
+                <input type="number" placeholder="Digite La Nota" class="form-control" name="Nestu3" step="0.00001">
+            </div>
+            <button type="submit" class="btn btn-warning m-2">Calcular</button>
+        </form>
+        <?php
+            if($_POST){
+                /* nombres */
+                $estu1 = $_POST["estu1"];
+                $estu2 =  $_POST["estu2"];
+                $estu3 = $_POST["estu3"];
+                $nombre = array("$estu1", "$estu2", "$estu3");
+                /* notas */
+                $Nestu1 = $_POST["Nestu1"];
+                $Nestu2 =  $_POST["Nestu2"];
+                $Nestu3 = $_POST["Nestu3"];
+                $notas = array("$Nestu1", "$Nestu2", "$Nestu3");
+                /* genero */
+                $Sestu1 = $_POST["Sestu1"];
+                $Sestu2 =  $_POST["Sestu2"];
+                $Sestu3 = $_POST["Sestu3"];         
+                /* Mayor nota */
+                $Mnota = max($notas);
+                $Minota = min($notas);
+                $posicionM = array_search($Mnota, $notas);
+                $posicionMin = array_search($Minota, $notas);
+                echo "El Estudiante con mayor nota es: {$nombre[$posicionM]}... con una nota de $Mnota" . "<br>";
+                echo "El Estudiante con menor nota es: {$nombre[$posicionMin]}... con una nota de $Minota" . "<br>";
+                /* Cuantos Hombres y mujeres */
+                if(Sestu1 == "Hombre"){};
+
+            };
         ?>
     </div>
 
