@@ -4,11 +4,10 @@ body{
     display:flex ;
     flex-wrap: wrap;
 }
-
 .caja{
     margin: 2rem;
-    height: 30%;
-    width: 30%;
+    height: 35rem;
+    width: 26rem;
     border: 2px black solid;
     padding: 2rem;
     border-radius: 3rem;

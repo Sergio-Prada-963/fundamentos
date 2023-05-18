@@ -10,8 +10,8 @@
 </head>
 <body>
     <!-- Punto #1 -->
-    <div class="caja">
-        <h2>notas Estudiantes</h2>
+    <div class="caja"> 
+        <h2>notas Estudiantes <strong>#1</strong></h2>
         <form action="taller.php" method="POST">
             <label for="inputPassword5" class="form-label">nota 1 </label>
             <input type="number" id="inputPassword5" class="form-control" name="nota1" aria-labelledby="passwordHelpBlock" step="0.00001">
@@ -37,6 +37,7 @@
     </div>
     <!-- Punto #2 -->
     <div class="caja">
+        <h2>Par Inpar <strong>#2</strong></h2>
         <form action="taller.php" method="POST">
             <label >Digite un namber</label>
             <input type="number" class="form-control" name="numero" aria-labelledby="passwordHelpBlock" step="0.00001">
@@ -62,6 +63,7 @@
     </div>
     <!-- Punto #3 -->
     <div class="caja">
+        <h2>voltaje <strong>#3</strong></h2>
         <form action="taller.php" method="POST">
             <label>Digite la resistencia</label>
             <input type="number" class="form-control" placeholder="Digite la resistencia" step="0.00001" name="resistencia">
@@ -81,6 +83,7 @@
     <!-- Punto #4 -->
     <div class="caja">
         <form action="taller.php" method="POST" >
+            <h2>Nombre y edad <strong>#4</strong></h2>
             <label>Persona #1</label>
             <input type="text" placeholder="Digite el nombre de la persona" class="form-control" name="persona1">
             <input type="number" placeholder="digite la edad de la persona" class="form-control" name="ePersona1" step="0.0001">
@@ -119,6 +122,7 @@
     <!-- punto #5 -->
     <div class="caja">
         <form action="taller.php" method="POST" >
+            <h2>Numero mayor al segundo <strong>#5</strong></h2>
             <label>Ingrese Un Nuemero</label>
             <input type="number" placeholder="digite un numero" class="form-control" name="numero1" step="0.0001">
             <label>Ingrese Otro Numero</label>
@@ -142,6 +146,7 @@
     <!-- Punto #6 -->
     <div class="caja">
         <form action="taller.php" method="POST" >
+            <h2>Nombre sexo y nota definitiva <strong>#6</strong></h2>
             <label>tres estudiantes</label>
             <div class="caja">
                 <label>Estudiante #1</label>
@@ -218,6 +223,7 @@
     <!-- Punto #7 -->
     <div class="caja">
         <form action="taller.php" method="POST" >
+            <h2>Nombre y Precio de un Producto <strong>#7</strong></h2>
             <label>Nombre del Producto</label>
             <input type="text" placeholder="Digite el Producto" class="form-control" name="producto">
             <label>Precio del Producto</label>
@@ -239,6 +245,7 @@
     <!-- Punto #8 -->
     <div class="caja">
         <form action="taller.php" method="POST" >
+            <h2>Perimetro y Area <strong>#8</strong></h2>
             <label>Ingrese el lado de un cuadrado</label>
             <input type="number" placeholder="Digite la medida" class="form-control" name="lado" step="0.1">
             <label>Ingrese la base de un rectangulo</label>
@@ -264,6 +271,7 @@
     <!-- Punto #9 -->
     <div class="caja">
         <form action="taller.php" method="POST" >
+            <h2>Atletas <strong>#9</strong></h2>
             <label>Digitar los datos de la atleta 1</label>
             <label>nombre</label>
             <input type="text" name="nameA1" placeholder="Digite el nombre" class="form-control">
@@ -323,6 +331,7 @@
     <!-- Punto #10 -->
     <div class="caja">
         <form action="taller.php" method="POST" >
+            <h2>Operaciones con valores <strong>#10</strong></h2>
             <label>Primer Numero</label>
             <input type="number" name="nam1" placeholder="Digite un numero" class="form-control">
             <label for="">Segundo Numero</label>
