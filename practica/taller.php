@@ -199,11 +199,89 @@
                 echo "El Estudiante con mayor nota es: {$nombre[$posicionM]}... con una nota de $Mnota" . "<br>";
                 echo "El Estudiante con menor nota es: {$nombre[$posicionMin]}... con una nota de $Minota" . "<br>";
                 /* Cuantos Hombres y mujeres */
-                if(Sestu1 == "Hombre"){};
-
+                $CantidadH = 0;
+                $CantidadM = 0;
+                if($Sestu1 === "Hombre"){
+                    $CantidadH++ ;
+                }else{$CantidadM++;};
+                if($Sestu2 === "Hombre"){
+                    $CantidadH++;
+                }else{$CantidadM++;};
+                if($Sestu3 === "Hombre"){
+                    $CantidadH++;
+                }else{$CantidadM++;};
+                echo "La Candidad de Hombres Son: $CantidadH";
+                echo "La Candidad de Mujeres Son: $CantidadM";
             };
         ?>
     </div>
+    <!-- Punto #7 -->
+    <div class="caja">
+        <form action="taller.php" method="POST" >
+            <label>Nombre del Producto</label>
+            <input type="text" placeholder="Digite el Producto" class="form-control" name="producto">
+            <label>Precio del Producto</label>
+            <input type="number" placeholder="Digite el Precio" class="form-control" name="precio" step="0.1">
+            <label>Cantidad de Productos</label>
+            <input type="number" placeholder="Digite la Cantidad de Productos" class="form-control" name="cantidad">
+            <button type="submit" class="btn btn-warning m-2">Facturar</button>
+        </form>
+        <?php
+            if($_POST){
+                $producto = $_POST["producto"];
+                $precio = $_POST["precio"];
+                $cantidad = $_POST["cantidad"];
+                $factura = $precio*$cantidad;
+                echo "FACTURA <br> Producto: $producto... <br> Precio: $precio... <br> Cantidad: $cantidad... <br> TOTAL: $factura";
+            };
+        ?>
+    </div>
+    <!-- Punto #8 -->
+    <div class="caja">
+        <form action="taller.php" method="POST" >
+            <label>Ingrese el lado de un cuadrado</label>
+            <input type="number" placeholder="Digite la medida" class="form-control" name="lado" step="0.1">
+            <label>Ingrese la base de un rectangulo</label>
+            <input type="number" placeholder="Digite la base" class="form-control" name="base" step="0.1">
+            <label>Ingrese la altura del rectangulo</label>
+            <input type="number" placeholder="Digite la altura" class="form-control" name="altura" step="0.1">
+            <button type="submit" class="btn btn-warning m-2">calcular</button>
+        </form>
+        <?php
+            if($_POST){
+                /* Perimetro */
+                $lado = $_POST["lado"];
+                $perimetro = $lado*4;
+                echo "El perimetro del cuadrado es: $perimetro <br>";
+                /* Area */
+                $base = $_POST["base"];
+                $altura = $_POST["altura"];
+                $area = $base*$altura;
+                echo "El Area del Rectangulo es $area";
+            };
+        ?>
+    </div>
+    <!-- Punto #9 -->
+    <div class="caja">
+        <form action="taller.php" method="POST" >
+            <label>Ingrese El Numero De Atletas</label>
+            <input type="number" placeholder="Digite la Cantidad" class="form-control" name="cantidadA">
+            <button type="submit" class="btn btn-warning m-2">Premiar</button>
+        </form>
+        <?php
+            if($_POST){
+                $cantidad = $_POST["cantidadA"];
+                $atletas = array();
+                for ($i=1; $i < $cantidad +1; $i++) { 
+                    echo "<label>Digite el Atleta {$i}</label> 
+                    <input type='text' placeholder='Digite el nombre del atleta {$i}' class='form-control' name='Nombre{$i}'>
+                    <label>Digite la Marca {$i}</label>
+                    <input type='number' placeholder='Digite el la marca {$i}' class='form-control' name='marca{$i}' step='0.01'> <br>";
+                }
+            };
+        ?>
+    </div>
+    
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
