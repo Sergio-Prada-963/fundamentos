@@ -264,25 +264,107 @@
     <!-- Punto #9 -->
     <div class="caja">
         <form action="taller.php" method="POST" >
-            <label>Ingrese El Numero De Atletas</label>
-            <input type="number" placeholder="Digite la Cantidad" class="form-control" name="cantidadA">
-            <button type="submit" class="btn btn-warning m-2">Premiar</button>
+            <label>Digitar los datos de la atleta 1</label>
+            <label>nombre</label>
+            <input type="text" name="nameA1" placeholder="Digite el nombre" class="form-control">
+            <label>salto</label>
+            <input type="text" name="marca1" placeholder="Digite la marca" class="form-control">
+            <label>Digitar los datos de la atleta 2</label>
+            <label>nombre</label>
+            <input type="text" name="nameA2" placeholder="Digite el nombre" class="form-control">
+            <label>salto</label>
+            <input type="text" name="marca2" placeholder="Digite la marca" class="form-control">
+            <label>Digitar los datos de la atleta 3</label>
+            <label>nombre</label>
+            <input type="text" name="nameA3" placeholder="Digite el nombre" class="form-control">
+            <label>salto</label>
+            <input type="text" name="marca3" placeholder="Digite la marca" class="form-control">
+            <input type="submit" value="Premiar">
+        </form>
+        <?php
+            $record = 15.50;
+            $maximoSalto = 0;
+            $minimoSalto = 999;
+            $nombreMayor = "";
+            $marca1 = $_POST["marca1"];
+            $marca2 = $_POST["marca2"];
+            $marca3 = $_POST["marca3"];
+            $nombre1 = $_POST["nameA1"];
+            $nombre2 = $_POST["nameA2"];
+            $nombre3 = $_POST["nameA3"];
+
+            if ( $marca1 > $maximoSalto) {
+                $maximoSalto = $marca1;
+                $nombreMayor = $nombre1;
+            if( $marca2 > $maximoSalto){
+                $maximoSalto = $marca2;
+                $nombreMayor = $nombre2;
+            }
+            if( $marca3 > $maximoSalto){
+                $maximoSalto = $marca3;
+                $nombreMayor = $nombre3;
+            }
+            if ( $marca1 == $marca2 && $marca1 > $marca3) {
+                $nombreMayor = $nombre2." y ".$nombre1;
+            }
+            if ( $marca1 == $marca3 && $marca1 > $marca2) {
+                $nombreMayor = $nombre1." y ".$nombre3;
+            }
+            if ( $marca2 == $marca3 && $marca2 > $marca1) {
+                $nombreMayor = $nombre2." y ".$nombre3;
+            } 
+            }
+            if ($maximoSalto > $record){
+                echo "se rompio el record y fue impuesto por la o los atletas {$nombreMayor} llevandose el bono de 500 millones <br>";
+            }
+            echo "la atleta ganadora del oro fue {$nombreMayor} con un salto de {$maximoSalto} metros";
+        ?> 
+    </div>
+    <!-- Punto #10 -->
+    <div class="caja">
+        <form action="taller.php" method="POST" >
+            <label>Primer Numero</label>
+            <input type="number" name="nam1" placeholder="Digite un numero" class="form-control">
+            <label for="">Segundo Numero</label>
+            <input type="number" name="nam2" placeholder="Digite un numero" class="form-control">
+            <label for="">Tercer Numero</label>
+            <input type="number" name="nam3" placeholder="Digite un numero" class="form-control">
+            <input type="submit" value="calcular">
         </form>
         <?php
             if($_POST){
-                $cantidad = $_POST["cantidadA"];
-                $atletas = array();
-                for ($i=1; $i < $cantidad +1; $i++) { 
-                    echo "<label>Digite el Atleta {$i}</label> 
-                    <input type='text' placeholder='Digite el nombre del atleta {$i}' class='form-control' name='Nombre{$i}'>
-                    <label>Digite la Marca {$i}</label>
-                    <input type='number' placeholder='Digite el la marca {$i}' class='form-control' name='marca{$i}' step='0.01'> <br>";
-                }
+                $numero_1 = $_POST["nam1"];
+                $numero_2 = $_POST["nam2"];
+                $numero_3 = $_POST["nam3"];
+                $suma = $numero_1 + $numero_2 + $numero_3;
+                $promedio = ($numero_1 + $numero_2 + $numero_3)/3;
+                $Total_valores = 3;
+                $mayorNumero = 0; 
+                $menorNumero = 999; 
+                if ($numero_1 > $mayorNumero) {
+                    $mayorNumero = $numero_1;
+                };
+                if ($numero_2 > $mayorNumero) {
+                    $mayorNumero = $numero_2;
+                };
+                if ($numero_3 > $mayorNumero) {
+                    $mayorNumero = $numero_3;
+                };
+                if ($numero_1 < $menorNumero) {
+                    $menorNumero = $numero_1;
+                };
+                if ($numero_2 < $menorNumero) {
+                    $menorNumero = $numero_2;
+                };
+                if ($numero_3 < $menorNumero) {
+                    $menorNumero = $numero_3;
+                };
+                echo "la suma de los valores es de {$suma} su promedio es de {$promedio}<br>
+                el total de los valores registrados fue de {$Total_valores}<br>
+                el numero mayor fue {$mayorNumero} y el menor fue {$menorNumero}";
             };
         ?>
     </div>
-    
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html> 
